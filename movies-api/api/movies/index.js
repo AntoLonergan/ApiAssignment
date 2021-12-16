@@ -80,7 +80,10 @@ router.get('/tmdb/upcoming', asyncHandler( async(req, res) => {
     res.status(200).json(topRated);
   }));
 
-  
+  router.get('/tmdb/currently', asyncHandler( async(req, res) => {
+    const currently = await getCurrent();
+    res.status(200).json(currently);
+  }));
 
 
 
