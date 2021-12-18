@@ -8,6 +8,7 @@ import usersRouter from './api/users';
 import session from 'express-session';
 import authenticate from './authenticate';
 import passport from './authenticate';
+import subsRouter from './api/subs'
 
 
 dotenv.config();
@@ -35,6 +36,9 @@ app.use('/api/movies', passport.authenticate('jwt', {session: false}), moviesRou
 app.use('/api/genres', genresRouter)
 
 app.use('/api/users', usersRouter);
+app.use(errHandler);
+
+app.use('/api/subs', subsRouter);
 app.use(errHandler);
 
 app.listen(port, () => {
