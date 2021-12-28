@@ -141,4 +141,20 @@ export const getMovies = () => {
        throw error
     });
   };
+
+  export const getNowTV = () => {
+    return fetch(
+      `https://api.themoviedb.org/3/tv/on_the_air?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
+    ).then((response) => {
+      if (!response.ok) {
+        throw new Error(response.json().message);
+      }
+      return response.json();
+    })
+    .catch((error) => {
+       throw error
+    });
+  };
+
+  
   
