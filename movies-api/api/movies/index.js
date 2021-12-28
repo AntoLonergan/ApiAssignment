@@ -86,23 +86,28 @@ router.get('/tmdb/upcoming', asyncHandler( async(req, res) => {
   }));
 
   router.get('/tmdb/popular', asyncHandler( async(req, res) => {
-    const currently = await getPopularMovies();
-    res.status(200).json(currently);
+    const popular = await getPopularMovies();
+    res.status(200).json(popular);
   }));
 
   router.get('/tmdb/TVLatest', asyncHandler( async(req, res) => {
-    const currently = await getLatestTV();
-    res.status(200).json(currently);
+    const latest = await getLatestTV();
+    res.status(200).json(latest);
   }));
 
   router.get('/tmdb/TVToday', asyncHandler( async(req, res) => {
-    const currently = await getTodayTV();
-    res.status(200).json(currently);
+    const today = await getTodayTV();
+    res.status(200).json(today);
   })); 
-  
+
   router.get('/tmdb/TVNow', asyncHandler( async(req, res) => {
-    const currently = await getNowTV();
-    res.status(200).json(currently);
+    const now = await getNowTV();
+    res.status(200).json(now);
+  }));
+
+  router.get('/tmdb/TVPopular', asyncHandler( async(req, res) => {
+    const popular = await getNowTV();
+    res.status(200).json(popular);
   }));
   
 
