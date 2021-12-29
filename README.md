@@ -1,40 +1,84 @@
-# Assignment 2 - Api app.
+# Assignment 2 - Web API.
 
-Name: Anthony Lonergan
+Name: Your Name
 
-## Overview.
+## Features.
 
-This is my assignment 2 for web app development 2. 
-
-### Features.
-[ A bullet-point list of the __new features__ you added to the Movies Fan app (and any modifications to existing features) .]
+...... A bullet-point list of the ADDITIONAL features you have implemented in the API **THAT WERE NOT IN THE LABS** ......,
  
-+ Feature 1
-+ Feature 2
-+ Feature 3
-+ etc
-+ etc
+ + Feature 1 - .... a statement of its purpose/objective ..... 
+ + Feature 2 - .......
+ + Feature 3 = ......
+ + etc
+ + etc
 
-## Setup requirements.
+## Installation Requirements
 
-[ Outline any non-standard setup steps necessary to run your app locally after cloning the repo.]
+Describe what needs to be on the machine to run the API (Node v?, NPM, MongoDB instance, any other 3rd party software not in the package.json). 
 
-## API endpoints.
+Describe getting/installing the software, perhaps:
 
-[ List the __additional__ TMDB endpoints used, giving the description and pathname for each one.] 
+```bat
+git clone http:\myrepo.git
+```
 
-e.g.
-+ Discover list of movies - discover/movie
-+ Movie details - movie/:id
-+ Movie genres = /genre/movie/list
+followed by installation
 
-### Routing.
+```bat
+git install
+```
 
-[ List the __new routes__ supported by your app and state the associated page.]
+## API Configuration
+Describe any configuration that needs to take place before running the API. For example, creating an ``.env`` and what variables to put in it. Give an example of how this might be structured/done.
+REMEMBER: DON'T PUT YOUR OWN USERNAMES/PASSWORDS/AUTH KEYS IN THE README OR ON GITHUB, just placeholders as indicated below:
 
-+ /blogs - displays all published blogs.
-+ /blogs/:id - displays a particular blog.
-+ /blogs/:id/comments - detail view of a particular blog and its comments.
-+ etc.
+```bat
+NODE_ENV=development
+PORT=8080
+HOST=
+mongoDB=YourMongoURL
+seedDb=true
+secret=YourJWTSecret
+```
 
-[If relevant, state what aspects of your app are protected (i.e. require authentication) and what is public.]
+
+## API Design
+Give an overview of your web API design, perhaps similar to the following: 
+
+|  |  GET | POST | PUT | DELETE
+| -- | -- | -- | -- | -- 
+| /api/movies |Gets a list of movies | N/A | N/A |
+| /api/movies/{movieid} | Get a Movie | N/A | N/A | N/A
+| /api/movies/{movieid}/reviews | Get all reviews for movie | Create a new review for Movie | N/A | N/A  
+| ... | ... | ... | ... | ...
+
+If you have your API design on an online platform or graphic, please link to it (e.g. [Swaggerhub](https://app.swaggerhub.com/)).
+
+## Security and Authentication
+Give details of authentication/ security implemented on the API(e.g. passport/sessions). Indicate which routes are protected.
+
+## Integrating with React App
+
+Describe how you integrated your React app with the API. Perhaps link to the React App repo and give an example of an API call from React App. For example: 
+
+~~~Javascript
+export const getMovies = () => {
+  return fetch(
+     '/api/movies',{headers: {
+       'Authorization': window.localStorage.getItem('token')
+    }
+  }
+  )
+    .then(res => res.json())
+    .then(json => {return json.results;});
+};
+
+~~~
+
+## Extra features
+
+. . Briefly explain any non-standard features, functional or non-functional, developed for the app.  
+
+## Independent learning
+
+. . State the non-standard aspects of React/Express/Node (or other related technologies) that you researched and applied in this assignment . .  
