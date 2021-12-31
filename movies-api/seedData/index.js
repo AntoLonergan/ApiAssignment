@@ -9,27 +9,16 @@ import subModel from '../api/subs/subModel';
 import subs from './subs';
 
 dotenv.config();
-
+/*
 // deletes all user documents in collection and inserts test data
 async function loadUsers() {
   console.log('load user Data');
   try {
-    await userModel.deleteMany();
+    //await userModel.deleteMany();
     await users.forEach(user => userModel.create(user));
     console.info(`${users.length} users were successfully stored.`);
   } catch (err) {
     console.error(`failed to Load user Data: ${err}`);
-  }
-}
-
-async function loadSubs() {
-  console.log('load subs Data');
-  try {
-    await subModel.deleteMany();
-    await subs.forEach(sub => subModel.create(sub));
-    console.info(`${subs.length} subs were successfully stored.`);
-  } catch (err) {
-    console.error(`failed to Load sub Data: ${err}`);
   }
 }
 
@@ -56,11 +45,22 @@ export async function loadMovies() {
   } catch (err) {
     console.error(`failed to Load movie Data: ${err}`);
   }
+}*/
+
+async function loadSubs() {
+  console.log('load subs Data');
+  try {
+    await subModel.deleteMany();
+    await subs.forEach(sub => subModel.create(sub));
+    console.info(`${subs.length} subs were successfully stored.`);
+  } catch (err) {
+    console.error(`failed to Load sub Data: ${err}`);
+  }
 }
 
 if (process.env.SEED_DB) {
-  loadUsers();
-  loadGenres();
-  loadMovies();
+  //loadUsers();
+  //loadGenres();
+  //loadMovies();
   loadSubs();
 }
