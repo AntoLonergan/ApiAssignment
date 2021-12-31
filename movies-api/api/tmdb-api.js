@@ -57,8 +57,11 @@ export const getMovies = () => {
   };
 
   export const getMovie = (args) => {
+    // console.log(args)
+    const [, idPart] = args.queryKey;
+    const { id } = idPart;
     return fetch(
-      `/:id/reviews`
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_TMDB_KEY}`
     ).then((response) => {
       if (!response.ok) {
         throw new Error(response.json().message);
@@ -66,8 +69,8 @@ export const getMovies = () => {
       return response.json();
     })
     .catch((error) => {
-       throw error
-    });
+      throw error
+   });
   };
 
   
