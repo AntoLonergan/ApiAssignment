@@ -1,14 +1,14 @@
 import React, { useContext, useState } from "react";
 import { Redirect } from "react-router-dom";
-import { AuthContext } from '../contexts/authContext';
+import { SubsContext } from '../contexts/subsContext';
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 
 const SubsPage = props => {
-  const context = useContext(AuthContext)
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordAgain, setPasswordAgain] = useState("");
+  const context = useContext(SubsContext)
+  const [Name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [emailAgain, setEmailAgain] = useState("");
   const [registered, setRegistered] = useState(false);
   
   
@@ -23,8 +23,8 @@ const SubsPage = props => {
   }));
 
   const register = () => {
-    if (password.length > 0 && password === passwordAgain) {
-      context.register(userName, password);
+    if (email.length > 0 && email === emailAgain) {
+      context.register(Name, email);
       setRegistered(true);
     }
   }
@@ -39,19 +39,19 @@ const SubsPage = props => {
 
   return (
     <Card className={classes.root} variant="outlined">
-      <h2>Sign Up Now!</h2>
-      <p>You must register a username and password to log in </p>
-      <input value={userName} placeholder="Name" onChange={e => {
-        setUserName(e.target.value);
+      <h2>Sub Now!</h2>
+      <p>You must register a Name and Email </p>
+      <input value={Name} placeholder="Name" onChange={e => {
+        setName(e.target.value);
       }}></input><br />
-      <input value={password} type="password" placeholder="Your email" onChange={e => {
-        setPassword(e.target.value);
+      <input value={email} type="email" placeholder="Email" onChange={e => {
+        setEmail(e.target.value);
       }}></input><br />
-      <input value={passwordAgain} type="email" placeholder="Your email again" onChange={e => {
-        setPasswordAgain(e.target.value);
+      <input value={emailAgain} type="email" placeholder="Email again" onChange={e => {
+        setEmailAgain(e.target.value);
       }}></input><br />
       {/* Login web form  */}
-      <button onClick={register}>Register</button>
+      <button>Register</button>
     </Card>
   );
 };
