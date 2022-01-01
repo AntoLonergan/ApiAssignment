@@ -7,7 +7,7 @@ export const getMovies = () => {
   ).then(res => res.json());
 };
   
-/*export const getMovie = (args) => {
+export const getMovie = (args) => {
   // console.log(args)
   const [, idPart] = args.queryKey;
   const { id } = idPart;
@@ -22,16 +22,16 @@ export const getMovies = () => {
   .catch((error) => {
     throw error
  });
-};*/
+};
 
-export const getMovie = id => {
+/*export const getMovie = id => {
   return fetch(
     `/api/movies/tmdb/${id}`,{headers: {
       'Authorization': window.localStorage.getItem('token')
    }
  }
  ).then(res => res.json());
-};
+};*/
   
   export const getGenres = async () => {
     return fetch(
