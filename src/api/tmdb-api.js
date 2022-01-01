@@ -113,6 +113,73 @@ export const getMovie = (args) => {
    ).then(res => res.json());
  };
 
+ 
+
+ export const getTVLatest = () => {
+  return fetch(
+    '/api/movies/tmdb/TVLatest',{headers: {
+      'Authorization': window.localStorage.getItem('token')
+   }
+ }
+ ).then(res => res.json());
+};
+
+export const getTVToday = () => {
+  return fetch(
+    '/api/movies/tmdb/TVToday',{headers: {
+      'Authorization': window.localStorage.getItem('token')
+   }
+ }
+ ).then(res => res.json());
+};
+
+export const getTVNow = () => {
+  return fetch(
+    '/api/movies/tmdb/TVNow',{headers: {
+      'Authorization': window.localStorage.getItem('token')
+   }
+ }
+ ).then(res => res.json());
+};
+
+export const getTVPopular = () => {
+  return fetch(
+    '/api/movies/tmdb/TVPopular',{headers: {
+      'Authorization': window.localStorage.getItem('token')
+   }
+ }
+ ).then(res => res.json());
+};
+
+export const getTVTopRated = () => {
+  return fetch(
+    '/api/movies/tmdb/TVTopRated',{headers: {
+      'Authorization': window.localStorage.getItem('token')
+   }
+ }
+ ).then(res => res.json());
+};
+
+export const getProviders = () => {
+  return fetch(
+    '/api/movies/tmdb/Providers',{headers: {
+      'Authorization': window.localStorage.getItem('token')
+   }
+ }
+ ).then(res => res.json());
+};
+
+export const getPopularActors = () => {
+  return fetch(
+    '/api/movies/tmdb/PopularActors',{headers: {
+      'Authorization': window.localStorage.getItem('token')
+   }
+ }
+ ).then(res => res.json());
+};
+
+ 
+
   export const getLatest = () => {
     return fetch(
       `https://api.themoviedb.org/3/movie/latest?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1`
