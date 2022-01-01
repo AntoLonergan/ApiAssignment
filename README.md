@@ -2,10 +2,7 @@
 
 Name: Anthony Lonergan
 
-## Features.
-
-...... A bullet-point list of the ADDITIONAL features you have implemented in the API **THAT WERE NOT IN THE LABS** ......,
- 
+## Features. 
  + Feature 1 - Login and Signup pages implemented in react to view protected routes.
  + Feature 2 - Discover movies updated to work with TMDB and fully intergrated with react.
  + Feature 3 = Top Rated Movies made to work with TMDB and fully intergrated with react.
@@ -25,26 +22,12 @@ Name: Anthony Lonergan
  + Feature 17 = Can post new subs to the api and mongoose.
  + Feature 18 = Can Update the subs that are saved with mongoose.
  + Feature 19 = Changed settings so that seed information stays constant and will not reset every time.
+ + Feature 20 = Pagination added to api side.
 ## Installation Requirements
 
-Describe what needs to be on the machine to run the API (Node v?, NPM, MongoDB instance, any other 3rd party software not in the package.json). 
-
-Describe getting/installing the software, perhaps:
-
-```bat
-git clone http:\myrepo.git
-```
-
-followed by installation
-
-```bat
-git install
-```
+Nothing extra than what was used in the labs has to be added.
 
 ## API Configuration
-Describe any configuration that needs to take place before running the API. For example, creating an ``.env`` and what variables to put in it. Give an example of how this might be structured/done.
-REMEMBER: DON'T PUT YOUR OWN USERNAMES/PASSWORDS/AUTH KEYS IN THE README OR ON GITHUB, just placeholders as indicated below:
-
 ENV for api part
 ```bat
 NODE_ENV=development
@@ -69,9 +52,20 @@ Give an overview of your web API design, perhaps similar to the following:
 
 |  |  GET | POST | PUT | DELETE
 | -- | -- | -- | -- | -- 
-| /api/movies |Gets a list of movies | N/A | N/A |
-| /api/movies/{movieid} | Get a Movie | N/A | N/A | N/A
-| /api/movies/{movieid}/reviews | Get all reviews for movie | Create a new review for Movie | N/A | N/A  
+| /api/movies/tmdb/movies  |Gets a list of movies | N/A | N/A |
+| /api/movies/tmdb/upcoming  | Get a list of Upcoming Movies | N/A | N/A | N/A
+| /api/movies/tmdb/topRated  | Get a list of top rated movies | N/A | N/A | N/A
+| /api/movies/tmdb/currently  | Get a list of movies currently in cinema | N/A | N/A | N/A
+| /api/movies/tmdb/popular  | Get a list of popular movies | N/A | N/A | N/A
+| /api/movies/tmdb/TVLatest | Get the latest tv shows | N/A | N/A | N/A
+| /api/movies/tmdb/TVToday | Get TV shows on today| N/A | N/A | N/A
+| /api/movies/tmdb/TVNow  | Get Tv shows on now | N/A | N/A | N/A
+| /api/movies/tmdb/TVPopular  | Get Popular TV Shows | N/A | N/A | N/A
+| /api/movies/tmdb/TVTopRated | Get top rated tv shows | N/A | N/A | N/A
+| /api/movies/tmdb/Providers  | Get Movie Providers | N/A | N/A | N/A
+| /api/movies/tmdb/PopularActors | Get a list of popular actors | N/A | N/A | N/A
+| /api/users| Get a User | Post a Subscriber | Update a Subscriber  | N/A
+| /api/subs | Get a Subscriber | Post a subscriber | Update a Subscriber | N/A
 | ... | ... | ... | ... | ...
 
 If you have your API design on an online platform or graphic, please link to it (e.g. [Swaggerhub](https://app.swaggerhub.com/)).
@@ -81,7 +75,8 @@ Give details of authentication/ security implemented on the API(e.g. passport/se
 
 ## Integrating with React App
 
-Describe how you integrated your React app with the API. Perhaps link to the React App repo and give an example of an API call from React App. For example: 
+Describe how you integrated your React app with the API. Perhaps link to the React App repo and give an example of an API call from React App. 
+All my react abstract calls to my api are shown below. 
 
 ~~~Javascript
 export const getMovies = () => {
@@ -129,6 +124,68 @@ export const getMovies = () => {
    ).then(res => res.json());
  };
 
+ export const getTVLatest = () => {
+  return fetch(
+    '/api/movies/tmdb/TVLatest',{headers: {
+      'Authorization': window.localStorage.getItem('token')
+   }
+ }
+ ).then(res => res.json());
+};
+
+export const getTVToday = () => {
+  return fetch(
+    '/api/movies/tmdb/TVToday',{headers: {
+      'Authorization': window.localStorage.getItem('token')
+   }
+ }
+ ).then(res => res.json());
+};
+
+export const getTVNow = () => {
+  return fetch(
+    '/api/movies/tmdb/TVNow',{headers: {
+      'Authorization': window.localStorage.getItem('token')
+   }
+ }
+ ).then(res => res.json());
+};
+
+export const getTVPopular = () => {
+  return fetch(
+    '/api/movies/tmdb/TVPopular',{headers: {
+      'Authorization': window.localStorage.getItem('token')
+   }
+ }
+ ).then(res => res.json());
+};
+
+export const getTVTopRated = () => {
+  return fetch(
+    '/api/movies/tmdb/TVTopRated',{headers: {
+      'Authorization': window.localStorage.getItem('token')
+   }
+ }
+ ).then(res => res.json());
+};
+
+export const getProviders = () => {
+  return fetch(
+    '/api/movies/tmdb/Providers',{headers: {
+      'Authorization': window.localStorage.getItem('token')
+   }
+ }
+ ).then(res => res.json());
+};
+
+export const getPopularActors = () => {
+  return fetch(
+    '/api/movies/tmdb/PopularActors',{headers: {
+      'Authorization': window.localStorage.getItem('token')
+   }
+ }
+ ).then(res => res.json());
+};
 ~~~
 
 ## Extra features
