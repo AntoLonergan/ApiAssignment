@@ -36,4 +36,16 @@ router.post('/',asyncHandler( async (req, res, next) => {
     }
 });
 
+// Delete a sub
+router.delete('/:id', async (req, res) => {
+  if (req.body._id) delete req.body._id;
+  const result = await Sub.deleteOne({
+      _id: req.params.id,
+  }, req.body);
+  if (result.matchedCount) {
+      res.status(200).json({ code:200, msg: 'Sub Deleted Sucessfully' });
+  } else {
+      res.status(404).json({ code: 404, msg: 'Unable to Delete Sub' });
+  }
+});
 export default router;

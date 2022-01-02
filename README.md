@@ -66,17 +66,19 @@ Give an overview of your web API design, perhaps similar to the following:
 | /api/movies/tmdb/PopularActors | Get a list of popular actors | N/A | N/A | N/A
 | /api/users| Get a User | Post a Subscriber | Update a Subscriber  | N/A
 | /api/subs | Get a Subscriber | Post a subscriber | Update a Subscriber | N/A
-| ... | ... | ... | ... | ...
-
-If you have your API design on an online platform or graphic, please link to it (e.g. [Swaggerhub](https://app.swaggerhub.com/)).
 
 ## Security and Authentication
 Give details of authentication/ security implemented on the API(e.g. passport/sessions). Indicate which routes are protected.
+
+Favorites route is a private route and you have to log in or signup to see the favorites page. All pages need a bearer token to access.
+Passport and JWT is used.
 
 ## Integrating with React App
 
 Describe how you integrated your React app with the API. Perhaps link to the React App repo and give an example of an API call from React App. 
 All my react abstract calls to my api are shown below. 
+
+All the ones related to movies are displayed on the react app. The rest are set up properly to be used but are not displayed in a page on the react app.
 
 ~~~Javascript
 export const getMovies = () => {
@@ -188,6 +190,3 @@ export const getPopularActors = () => {
 };
 ~~~
 
-## Extra features
-
-. . Briefly explain any non-standard features, functional or non-functional, developed for the app.  

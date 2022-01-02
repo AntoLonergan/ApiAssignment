@@ -50,6 +50,19 @@ router.post('/',asyncHandler( async (req, res, next) => {
     }
 });
 
+// Delete a user
+router.delete('/:id', async (req, res) => {
+  if (req.body._id) delete req.body._id;
+  const result = await User.deleteOne({
+      _id: req.params.id,
+  }, req.body);
+  if (result.matchedCount) {
+      res.status(200).json({ code:200, msg: 'User Deleted Sucessfully' });
+  } else {
+      res.status(404).json({ code: 404, msg: 'Unable to Delete User' });
+  }
+});
+
 //Add a favourite. No Error Handling Yet. Can add duplicates too!
 router.post('/:userName/favourites', asyncHandler(async (req, res) => {
   const newFavourite = req.body.id;
