@@ -25,7 +25,7 @@ Name: Anthony Lonergan 20089310
  + Feature 20 = Pagination added to api side.
  + Feature 21 = Added Delete to users
  + Feature 22 = Added Delete to subs
- + Feature 22 = Pagination in api
+ + Feature 22 = Attempt of Pagination in api
 ## Installation Requirements
 
 Nothing extra than what was used in the labs has to be added.
