@@ -23,6 +23,8 @@ Name: Anthony Lonergan
  + Feature 18 = Can Update the subs that are saved with mongoose.
  + Feature 19 = Changed settings so that seed information stays constant and will not reset every time.
  + Feature 20 = Pagination added to api side.
+ + Feature 21 = Added Delete to users
+ + Feature 22 = Added Delete to subs
 ## Installation Requirements
 
 Nothing extra than what was used in the labs has to be added.
@@ -64,8 +66,8 @@ Give an overview of your web API design, perhaps similar to the following:
 | /api/movies/tmdb/TVTopRated | Get top rated tv shows | N/A | N/A | N/A
 | /api/movies/tmdb/Providers  | Get Movie Providers | N/A | N/A | N/A
 | /api/movies/tmdb/PopularActors | Get a list of popular actors | N/A | N/A | N/A
-| /api/users| Get a User | Post a Subscriber | Update a Subscriber  | N/A
-| /api/subs | Get a Subscriber | Post a subscriber | Update a Subscriber | N/A
+| /api/users| Get a User | Post a User | Update a User  | Delete a User
+| /api/subs | Get a Subscriber | Post a subscriber | Update a Subscriber | Delete a Subscriber
 
 ## Security and Authentication
 Give details of authentication/ security implemented on the API(e.g. passport/sessions). Indicate which routes are protected.
