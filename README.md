@@ -1,6 +1,6 @@
 # Assignment 2 - Web API.
 
-Name: Anthony Lonergan
+Name: Anthony Lonergan 20089310
 
 ## Features. 
  + Feature 1 - Login and Signup pages implemented in react to view protected routes.
@@ -28,6 +28,17 @@ Name: Anthony Lonergan
 ## Installation Requirements
 
 Nothing extra than what was used in the labs has to be added.
+
+In the main folder terminal use npm start to start up the react app part.
+```bat
+npm start 
+```
+
+Then for the api use an intergrated terminal in movies-api to start the api.
+```bat
+npm start 
+```
+
 
 ## API Configuration
 ENV for api part
