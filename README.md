@@ -40,6 +40,8 @@ Then for the api use an intergrated terminal in movies-api to start the api.
 npm start 
 ```
 
+Also if the pages are not loading properly logging in with a user in the favorites page will fix it.
+
 
 ## API Configuration
 ENV for api part
